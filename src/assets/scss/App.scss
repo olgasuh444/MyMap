@@ -27,7 +27,7 @@ header h1{
   display: table;
   width: auto;
   margin: 0 auto;
-  padding: 15px;
+  padding: 10px;
   letter-spacing: 2px;
   background: #98b2e2;
   border: 2px dashed white;
@@ -42,7 +42,7 @@ header h1{
   width: 300px;  
   position: relative;
   margin: 10px 35px;
-  padding: 10px;
+  padding: 3px;
 }
 .enterStart::before{
     display: block;
@@ -52,16 +52,16 @@ header h1{
     height: 28px;
     width: 28px;
     left: 35px;
-    top: 135px;
+    top: 117px;
     position: absolute;
-  }
-  .AutoC2{
+}
+.AutoC2{
     width: 300px;  
     position: relative;
     margin: 10px 35px;
-    padding: 10px;
-  }
-  .enterFinish::before{
+    padding: 3px;
+}
+.enterFinish::before{
     display: block;
     content: ' ';
     background-image: url('../img/finish-line.svg');
@@ -69,47 +69,48 @@ header h1{
     height: 28px;
     width: 28px;
     left: 35px;
-    top: 192px;
+    top: 162px;
     position: absolute;
-  }
-  .b1{
-    text-decoration: none;
+}
+.b1{
+  text-decoration: none;
   display: inline-block;
-  padding: 15px 30px;
-  margin: 10px 20px;
+  padding: 5px 30px;
+  margin: 10px 10px 10px 30px;
   border-radius: 10px;
   box-shadow: 0 0 40px 40px #98b2e2 inset, 0 0 0 0 #98b2e2;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   letter-spacing: 2px;
   color: white;
-  transition: .15s ease-in-out;
+  transition: .15s ease-in-out;  
+    &:hover {
+      box-shadow: 0 0 10px 0 #98b2e2 inset, 0 0 10px 4px #98b2e2;
+      color: #98b2e2;
+    }
+}
+@media screen and (max-width: 600px) {
+  .App-logo{
+    display: none;
   }
-  .b1:hover {
-    box-shadow: 0 0 10px 0 #98b2e2 inset, 0 0 10px 4px #98b2e2;
-    color: #98b2e2;
+  .App-header{
+    display: block;      
   }
-  @media screen and (max-width: 600px) {
-    .App-logo{
-display: none;
-    }
-    .App-header{
-      display: block;      
-    }
-    .LogIn{
-      display: block;
-      margin: 15px 0;
-    }
-    .enterFinish::before, .enterStart::before{
-      display: none;
-    }
-    .AutoC{
-      margin: 5px 0;
-    }
-    .b1{
-      margin: 5px 0;
-    }
-    header h1{
-      margin: 0;
-    }
+  .LogIn{
+    display: block;
+    margin: 10px 0 5px 0;
   }
+  .enterFinish::before, .enterStart::before{
+    display: none;
+  }
+  .AutoC{
+    margin: 5px 0;
+  }
+  .b1{
+    margin: 5px 0;
+  }
+  header h1{
+    margin: 0;
+    padding: 2px;
+  }
+}

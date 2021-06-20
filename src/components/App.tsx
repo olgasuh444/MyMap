@@ -50,7 +50,6 @@ class App extends React.Component<Record<string, unknown>, undefined> {
             <button className="b1" onClick={() => this.getLocation()}>Мое местоположение</button>
             <button className="b1" onClick={() => this.buildRoute()}>Построить маршрут</button>
           </div>
-
         </div>
 
         <MyMapComponent markers={this.state.markers} onMapClick={(e) => this.handleMapClick(e)} directions={this.state.directions} />
