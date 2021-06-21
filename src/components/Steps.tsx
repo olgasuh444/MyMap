@@ -1,16 +1,16 @@
-interface IStepProps{
-    steps: [{instructions: string, duration: string}];
+interface IStepProps {
+  steps: [{ instructions: string, duration: string }];
 };
-export const Step: React.FC<IStepProps> = ({steps
+export const Step: React.FC<IStepProps> = ({ steps
 
 }) => {
-    return (
-        <ul>
-          {steps.map(item => (
-            <li key={item.instructions}>
-              {item.instructions} {item.duration}
-            </li>
-          ))}
-        </ul>
-      );
+  return (
+    <ul className="Marker">
+      {steps.map(item => (
+        <li key={item.instructions}>
+          {item.instructions} {item.duration}
+        </li>
+      ))}
+    </ul>
+  );
 };

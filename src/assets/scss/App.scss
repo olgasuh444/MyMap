@@ -89,6 +89,25 @@ header h1{
       color: #98b2e2;
     }
 }
+.Marker{
+  padding:0;
+  list-style: none;
+  & li{
+    padding:5px;
+    cursor:pointer;
+  }
+  & li:before {
+    padding-right: 9px;
+    font-weight: bold;
+    color: #98b2e2;
+    content: "\2714";
+    transition-duration: 0.4s;
+  }
+  & li:hover:before {
+    color: #2369a5;
+    content: "\2714";
+  }
+}
 @media screen and (max-width: 600px) {
   .App-logo{
     display: none;
