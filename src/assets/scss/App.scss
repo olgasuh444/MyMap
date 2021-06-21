@@ -93,7 +93,7 @@ header h1{
   padding:0;
   list-style: none;
   & li{
-    padding:5px;
+    padding:5px 5px 5px 35px ;
     cursor:pointer;
   }
   & li:before {
@@ -131,5 +131,10 @@ header h1{
   header h1{
     margin: 0;
     padding: 2px;
+  }
+  .Marker{
+    & li{
+      padding:5px;
+    }
   }
 }
