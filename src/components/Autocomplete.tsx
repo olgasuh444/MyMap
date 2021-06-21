@@ -10,5 +10,3 @@ const AutoCompl = () =>
         }}
     />;
 export default AutoCompl;
-
-

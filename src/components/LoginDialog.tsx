@@ -6,11 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-// interface ILogInInfo {
-//     name: string;
-//     password: string;
 
-// }
 export default function LoginDialog() {
     const [open, setOpen] = React.useState(false);
     const [name, setName] = React.useState("");

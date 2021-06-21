@@ -8,6 +8,7 @@ import { Step } from "./Steps";
 import Header from "./Header"
 import AutoC2 from "./AutoC2"
 import AutoCompl from "./Autocomplete"
+
 declare var google;
 interface IState {
   markers: IMarker[];
@@ -50,11 +51,11 @@ class App extends React.Component<Record<string, unknown>, undefined> {
             <button className="b1" onClick={() => this.getLocation()}>Мое местоположение</button>
             <button className="b1" onClick={() => this.buildRoute()}>Построить маршрут</button>
           </div>
+          {this.state.directions.routes &&
+            <Step steps={this.state.directions.routes[0].legs[0].steps.map(s => { return { instructions: s.instructions, duration: s.duration.text } })} />}
         </div>
-
         <MyMapComponent markers={this.state.markers} onMapClick={(e) => this.handleMapClick(e)} directions={this.state.directions} />
-        {this.state.directions.routes &&
-          <Step steps={this.state.directions.routes[0].legs[0].steps.map(s => { return { instructions: s.instructions, duration: s.duration.text } })} />}
+
       </div>
     );
   }
@@ -150,6 +151,8 @@ class App extends React.Component<Record<string, unknown>, undefined> {
         });
       }
     })
+
+
   }
 
   private parseAddress(response: any) {
