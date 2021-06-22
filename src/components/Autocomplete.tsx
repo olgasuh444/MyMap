@@ -1,12 +1,16 @@
 import Autocomplete from "react-google-autocomplete";
 
-const AutoCompl = () =>
+const AutoCompl = (props) =>
     <Autocomplete
-        apiKey={'AIzaSyCDp_1ClFEjLp5C4lHm1ruc9_u79AQa0BE'}
+
         className="AutoC"
-        placeholder="Начальная точка маршрута"
+        placeholder={props.text}
         onPlaceSelected={(place) => {
             console.log(place);
+        }}
+        options={{
+            types: ['address'],
+            bounds: new google.maps.LatLngBounds(new google.maps.LatLng(49.1, 27), new google.maps.LatLng(49.8, 29))
         }}
     />;
 export default AutoCompl;

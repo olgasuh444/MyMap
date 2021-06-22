@@ -6,7 +6,6 @@ import "./../assets/scss/App.scss";
 import Geocode from "react-geocode";
 import { Step } from "./Steps";
 import Header from "./Header"
-import AutoC2 from "./AutoC2"
 import AutoCompl from "./Autocomplete"
 
 declare var google;
@@ -42,10 +41,10 @@ class App extends React.Component<Record<string, unknown>, undefined> {
         <Header />
         <div className="nav">
           <div className="enterStart">
-            <AutoCompl />
+            <AutoCompl text="Начальная точка маршрута" />
           </div>
           <div className="enterFinish">
-            <AutoC2 />
+            <AutoCompl text="Конечная точка маршрута" />
           </div>
           <div className="buttons">
             <button className="b1" onClick={() => this.getLocation()}>Мое местоположение</button>
