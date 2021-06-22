@@ -47,7 +47,7 @@ class App extends React.Component<Record<string, unknown>, undefined> {
           </div>
           <div className="enterFinish">
             <AutoCompl text="Конечная точка маршрута"
-            // onAutoClick={(e) => this.AutoClick(e)} 
+              onAutoClick={(e) => this.AutoClick(e)}
             />
           </div>
           <div className="buttons">
