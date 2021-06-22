@@ -22,7 +22,7 @@ const MyMapComponent = compose(
     defaultZoom={12}
     defaultCenter={{ lat: 49.23, lng: 28.43 }}
     onClick={props.onMapClick}
-  // onPlaceSelected={props.onAutoClick}
+
   >
     {props.markers.map(p => <OverlayView
       key={p.lat}

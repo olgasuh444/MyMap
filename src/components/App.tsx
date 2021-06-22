@@ -41,10 +41,14 @@ class App extends React.Component<Record<string, unknown>, undefined> {
         <Header />
         <div className="nav">
           <div className="enterStart">
-            <AutoCompl text="Начальная точка маршрута" />
+            <AutoCompl text="Начальная точка маршрута"
+              onAutoClick={(e) => this.AutoClick(e)}
+            />
           </div>
           <div className="enterFinish">
-            <AutoCompl text="Конечная точка маршрута" />
+            <AutoCompl text="Конечная точка маршрута"
+            // onAutoClick={(e) => this.AutoClick(e)} 
+            />
           </div>
           <div className="buttons">
             <button className="b1" onClick={() => this.getLocation()}>Мое местоположение</button>
@@ -54,7 +58,7 @@ class App extends React.Component<Record<string, unknown>, undefined> {
             <Step steps={this.state.directions.routes[0].legs[0].steps.map(s => { return { instructions: s.instructions, duration: s.duration.text } })} />}
         </div>
         <MyMapComponent markers={this.state.markers} onMapClick={(e) => this.handleMapClick(e)} directions={this.state.directions} />
-        {/* <MyMapComponent markers={this.state.markers} onAutoClick={(e) => this.AutoClick(e)} directions={this.state.directions} /> */}
+
 
       </div>
     );
@@ -156,37 +160,37 @@ class App extends React.Component<Record<string, unknown>, undefined> {
   }
 
 
-  // AutoClick = (e) => {
-  //   this.getAddress(e.gemetry.location.lat(), e.gemetry.location.lng()).then(response => {
-  //     const address = this.parseAddress(response);
+  AutoClick = (e) => {
+    this.getAddress(e.geometry.location.lat(), e.geometry.location.lng()).then(response => {
+      const address = this.parseAddress(response);
 
-  //     var index = this.state.markers.findIndex(x => x.type == MarkerType.Destination);
+      var index = this.state.markers.findIndex(x => x.type == MarkerType.Destination);
 
-  //     if (index == -1) {
-  //       this.setState((prevState: IState) => ({
-  //         markers: [...prevState.markers, {
-  //           lat: e.latLng.lat(), label: {
-  //             text: address
-  //           } as IMarkerOptions, lng: e.latLng.lng(), type: MarkerType.Destination
-  //         }]
-  //       }))
-  //     } else {
-  //       this.setState({
-  //         markers: [
-  //           ...this.state.markers.slice(0, index),
-  //           Object.assign({}, this.state.markers[index], {
-  //             label: {
-  //               text: address
-  //             } as IMarkerOptions, lat: e.latLng.lat(), lng: e.latLng.lng()
-  //           }),
-  //           ...this.state.markers.slice(index + 1)
-  //         ]
-  //       });
-  //     }
-  //   })
+      if (index == -1) {
+        this.setState((prevState: IState) => ({
+          markers: [...prevState.markers, {
+            lat: e.geometry.location.lat(), label: {
+              text: address
+            } as IMarkerOptions, lng: e.geometry.location.lng(), type: MarkerType.Destination
+          }]
+        }))
+      } else {
+        this.setState({
+          markers: [
+            ...this.state.markers.slice(0, index),
+            Object.assign({}, this.state.markers[index], {
+              label: {
+                text: address
+              } as IMarkerOptions, lat: e.geometry.location.lat(), lng: e.geometry.location.lng()
+            }),
+            ...this.state.markers.slice(index + 1)
+          ]
+        });
+      }
+    })
 
 
-  // }
+  }
 
 
   private parseAddress(response: any) {

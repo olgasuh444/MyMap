@@ -5,8 +5,9 @@ const AutoCompl = (props) =>
 
         className="AutoC"
         placeholder={props.text}
+
         onPlaceSelected={(place) => {
-            console.log(place);
+            props.onAutoClick(place)
         }}
         options={{
             types: ['address'],
@@ -14,3 +15,4 @@ const AutoCompl = (props) =>
         }}
     />;
 export default AutoCompl;
+
